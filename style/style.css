@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  user-select: none;
 }
 body {
   font-family: "Montserrat", sans-serif;
@@ -56,9 +57,13 @@ body {
   color: white;
   font-size: 20px;
 }
+.UserButton:hover {
+  background-color: #432000;
+}
 /* List item */
 .shoppingList {
   /* position: relative; */
+  width: 300px;
   margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
@@ -67,10 +72,15 @@ body {
   gap: 5px;
 }
 .shoppingList li {
+  flex-grow: 1;
   list-style: none;
   border: 1px solid lightgrey;
   background-color: #fffdf8;
   padding: 5px 10px;
   font-weight: 700;
   border-radius: 8px;
+  text-align: center;
+}
+.shoppingList li:hover {
+  background-color: #eef0f4;
 }

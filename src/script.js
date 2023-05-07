@@ -4,6 +4,7 @@ import {
   ref,
   push,
   onValue,
+  remove,
 } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
 const FIREBASE = {
   databaseURL:
@@ -29,10 +30,21 @@ const initApp = () => {
     push(cartDB, item);
     console.log(`${userInput.value} added to database`);
     onValue(cartDB, (item) => {
-      shoppingList.innerHTML = "";
-      let obj = Object.values(item.val());
-      obj.forEach((item) => createShoppingItem(shoppingList, item));
-      console.log(obj);
+      if (item.exists()) {
+        shoppingList.innerHTML = "";
+        let shoppingItem = Object.entries(item.val());
+        for (let i = 0; i < shoppingItem.length; i++) {
+          let currItem = shoppingItem[i];
+          let currId = currItem[0];
+          let currValue = currItem[1];
+          createShoppingItem(shoppingList, currItem, database);
+          console.log(currItem);
+        }
+        // obj.forEach((item) => createShoppingItem(shoppingList, item[1]));
+        console.log(shoppingItem);
+      } else {
+        shoppingList.innerHTML = "No items here..yet";
+      }
     });
     clearInput();
   });
@@ -42,9 +54,16 @@ const clearInput = () => {
   userInput.value = "";
 };
 
-function createShoppingItem(parent, item) {
+function createShoppingItem(parent, currItem, database) {
   const li = document.createElement("li");
-  li.textContent = item;
+  let currId = currItem[0];
+  let currValue = currItem[1];
+  li.textContent = currValue;
+  console.log(li);
+  li.addEventListener("click", () => {
+    let Item = ref(database, `Items/${currId}`);
+    remove(Item);
+  });
   parent.appendChild(li);
 }
 
