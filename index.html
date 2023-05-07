@@ -6,12 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Add to Cart</title>
     <link rel="stylesheet" href="style/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,900&family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
     <script src="src/script.js" type="module"></script>
   </head>
   <body>
-    <form id="UserInput">
-      <input type="text" name="" id="EnterText" />
-      <button>click</button>
-    </form>
+    <main>
+      <div class="containerWrapper">
+        <div class="shoppingImg">
+          <img src="assests/img/Shopping-img.png" alt="" />
+        </div>
+        <form class="AddToCart" id="AddToCart">
+          <input
+            type="text"
+            id="userInput"
+            class="userInput"
+            placeholder="Rice"
+            autocomplete="off"
+          />
+          <button class="UserButton" id="UserButton">Add to Cart</button>
+        </form>
+      </div>
+    </main>
   </body>
 </html>

@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #f6e3b9;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.containerWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* Image */
+.shoppingImg {
+  width: 100vw;
+  height: auto;
+}
+.shoppingImg img {
+  width: 100%;
+  height: 100%;
+}
+/* Input Field */
+.AddToCart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.userInput {
+  margin: 10px 0px;
+  padding: 15px 30px;
+  outline: none;
+  text-align: center;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  font-size: 20px;
+  color: rgb(131, 115, 115);
+}
+.UserButton {
+  padding: 15px 100px;
+  font-weight: 700;
+  background-color: #8c3c4c;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 20px;
+}
